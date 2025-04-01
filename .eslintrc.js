@@ -10,7 +10,10 @@ module.exports = {
 				project: ['./tsconfig.json']
 			},
 			rules: {
-				'@typescript-eslint/no-floating-promises': 'warn'
+				'@typescript-eslint/no-floating-promises': 'warn',
+				'@typescript-eslint/no-misused-promises': 'warn',
+				'@typescript-eslint/no-unsafe-assignment': 'warn',
+				'@typescript-eslint/no-unsafe-argument': 'warn'
 			}
 		}
 	]
