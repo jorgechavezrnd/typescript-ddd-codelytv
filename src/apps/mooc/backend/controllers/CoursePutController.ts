@@ -11,7 +11,7 @@ export class CoursePutController implements Controller {
 		const id = req.params.id;
 		const { name, duration } = req.body;
 
-		await this.courseCreator.run(id, name, duration);
+		await this.courseCreator.run({ id, name, duration });
 
 		res.status(httpStatus.CREATED).send();
 	}
