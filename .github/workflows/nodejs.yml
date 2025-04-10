@@ -17,7 +17,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Start services with docker compose
         run: |
-          docker-compose up -d
+          docker compose up -d
       - name: npm install
         run: |
           npm install
