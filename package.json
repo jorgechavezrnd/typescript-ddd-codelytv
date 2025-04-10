@@ -41,7 +41,7 @@
     "glob": "^7.2.0",
     "helmet": "^4.6.0",
     "http-status": "^1.5.0",
-    "mongodb": "^4.0.0",
+    "mongodb": "^4.3.0",
     "node-dependency-injection": "^2.7.1",
     "nunjucks": "^3.2.3",
     "ts-node": "^10.2.1",
