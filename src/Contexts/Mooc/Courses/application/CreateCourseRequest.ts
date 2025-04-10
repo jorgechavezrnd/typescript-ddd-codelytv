@@ -1,4 +1,4 @@
-export interface CourseCreatorRequest {
+export interface CreateCourseRequest {
 	id: string;
 	name: string;
 	duration: string;

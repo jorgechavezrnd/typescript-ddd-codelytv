@@ -1,17 +1,10 @@
-import { Course } from '../../../../../../src/Contexts/Mooc/Courses/domain/Course';
-import { CourseDuration } from '../../../../../../src/Contexts/Mooc/Courses/domain/CourseDuration';
-import { CourseName } from '../../../../../../src/Contexts/Mooc/Courses/domain/CourseName';
 import { FileCourseRepository } from '../../../../../../src/Contexts/Mooc/Courses/infrastructure/persistence/FileCourseRepository';
-import { CourseId } from '../../../../../../src/Contexts/Mooc/Shared/domain/Courses/CourseId';
+import { CourseMother } from '../../domain/CourseMother';
 
 describe('FileCourseRepository', () => {
 	it('should save a course', async () => {
-		const expectedCourse = new Course({
-			id: new CourseId('ef8ac118-8d7f-49cc-abec-78e0d05af80a'),
-			name: new CourseName('name'),
-			duration: new CourseDuration('duration')
-		});
 		const repository = new FileCourseRepository();
+		const expectedCourse = CourseMother.random();
 
 		await repository.save(expectedCourse);
 
