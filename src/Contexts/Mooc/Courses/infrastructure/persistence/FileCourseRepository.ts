@@ -1,8 +1,10 @@
 import { deserialize, serialize } from 'bson';
 import fs from 'fs';
 
-import { Uuid } from '../../../../Shared/domain/value-object/Uuid';
+import { CourseId } from '../../../Shared/domain/Courses/CourseId';
 import { Course } from '../../domain/Course';
+import { CourseDuration } from '../../domain/CourseDuration';
+import { CourseName } from '../../domain/CourseName';
 import { CourseRepository } from '../../domain/CourseRepository';
 
 export class FileCourseRepository implements CourseRepository {
@@ -11,7 +13,7 @@ export class FileCourseRepository implements CourseRepository {
 	async save(course: Course): Promise<void> {
 		await fs.promises.writeFile(
 			this.filePath(course.id.value),
-			serialize({ id: course.id.value, name: course.name, duration: course.duration })
+			serialize({ id: course.id.value, name: course.name.value, duration: course.duration.value })
 		);
 	}
 
@@ -19,7 +21,11 @@ export class FileCourseRepository implements CourseRepository {
 		const courseData = await fs.promises.readFile(this.filePath(courseId));
 		const { id, name, duration } = deserialize(courseData);
 
-		return new Course({ id: new Uuid(id), name, duration });
+		return new Course({
+			id: new CourseId(id),
+			name: new CourseName(name),
+			duration: new CourseDuration(duration)
+		});
 	}
 
 	private filePath(id: string): string {

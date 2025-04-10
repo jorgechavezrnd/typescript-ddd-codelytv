@@ -16,7 +16,8 @@ module.exports = {
 				'@typescript-eslint/no-unsafe-argument': 'warn',
 				'@typescript-eslint/ban-types': 'warn',
 				'@typescript-eslint/no-unnecessary-condition': 'warn',
-				'@typescript-eslint/member-ordering': 'warn'
+				'@typescript-eslint/member-ordering': 'warn',
+				'@typescript-eslint/require-await': 'warn'
 			}
 		}
 	]
