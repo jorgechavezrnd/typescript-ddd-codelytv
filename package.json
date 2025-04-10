@@ -7,8 +7,8 @@
   },
   "license": "",
   "engines": {
-    "node": ">=14.0.0",
-    "npm": ">=6.14.0"
+    "node": ">=22.14.0",
+    "npm": ">=11.2.0"
   },
   "scripts": {
     "dev:mooc:backend": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules  ./src/apps/mooc/backend/start.ts",
