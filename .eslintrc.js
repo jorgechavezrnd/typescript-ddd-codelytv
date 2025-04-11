@@ -18,6 +18,8 @@ module.exports = {
 				'@typescript-eslint/no-unnecessary-condition': 'warn',
 				'@typescript-eslint/member-ordering': 'warn',
 				'@typescript-eslint/require-await': 'warn',
+				'@typescript-eslint/restrict-template-expressions': 'warn',
+				'@typescript-eslint/explicit-module-boundary-types': 'warn',
 				'no-await-in-loop': 'warn'
 			}
 		}

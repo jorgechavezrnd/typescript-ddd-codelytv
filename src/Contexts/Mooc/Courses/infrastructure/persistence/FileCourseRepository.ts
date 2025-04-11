@@ -21,11 +21,7 @@ export class FileCourseRepository implements CourseRepository {
 		const courseData = await fs.promises.readFile(this.filePath(courseId));
 		const { id, name, duration } = deserialize(courseData);
 
-		return new Course({
-			id: new CourseId(id),
-			name: new CourseName(name),
-			duration: new CourseDuration(duration)
-		});
+		return new Course(new CourseId(id), new CourseName(name), new CourseDuration(duration));
 	}
 
 	private filePath(id: string): string {
