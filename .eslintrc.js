@@ -17,7 +17,8 @@ module.exports = {
 				'@typescript-eslint/ban-types': 'warn',
 				'@typescript-eslint/no-unnecessary-condition': 'warn',
 				'@typescript-eslint/member-ordering': 'warn',
-				'@typescript-eslint/require-await': 'warn'
+				'@typescript-eslint/require-await': 'warn',
+				'no-await-in-loop': 'warn'
 			}
 		}
 	]
