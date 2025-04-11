@@ -19,6 +19,6 @@ export class CourseCreator {
 			duration: new CourseDuration(request.duration)
 		});
 
-		return this.repository.save(course);
+		await this.repository.save(course);
 	}
 }

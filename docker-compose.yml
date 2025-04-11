@@ -6,6 +6,9 @@ services:
     environment:
       - MONGO_URL=mongodb://mongo:27017/dev
     volumes:
-      - ./data/mongo:/data/db:delegated
+      - mongo_data:/data/db:delegated
     ports:
       - 27017:27017
+
+volumes:
+  mongo_data:
