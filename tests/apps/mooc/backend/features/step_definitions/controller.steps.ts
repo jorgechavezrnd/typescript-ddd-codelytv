@@ -2,7 +2,9 @@ import assert from 'assert';
 import { AfterAll, BeforeAll, Given, Then } from 'cucumber';
 import request from 'supertest';
 
+import container from '../../../../../../src/apps/mooc/backend/dependency-injection';
 import { MoocBackendApp } from '../../../../../../src/apps/mooc/backend/MoocBackendApp';
+import { EnvironmentArranger } from '../../../../../Contexts/Shared/infrastructure/arranger/EnvironmentArranger';
 
 let _request: request.Test;
 let application: MoocBackendApp;
@@ -27,10 +29,18 @@ Then('the response should be empty', () => {
 });
 
 BeforeAll(async () => {
+	const environmentArranger: Promise<EnvironmentArranger> = container.get(
+		'Mooc.EnvironmentArranger'
+	);
+	await (await environmentArranger).arrange();
 	application = new MoocBackendApp();
 	await application.start();
 });
 
 AfterAll(async () => {
+	const environmentArranger: Promise<EnvironmentArranger> = container.get(
+		'Mooc.EnvironmentArranger'
+	);
+	await (await environmentArranger).close();
 	await application.stop();
 });
